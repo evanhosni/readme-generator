@@ -28,7 +28,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: "Select a license for your project",
-        choices: ['GNU AGPLv3','GNU GPLv3','GNU LGPLv3','Mozilla Public License 2.0','Apache License 2.0','MIT License','Boost Software License 1.0','The Unlicense']
+        choices: ['None','GNU AGPLv3','GNU GPLv3','GNU LGPLv3','Mozilla Public License 2.0','Apache License 2.0','MIT License','Boost Software License 1.0','The Unlicense']
     },
     {
         type: 'input',
@@ -54,27 +54,29 @@ const questions = [
 
 function licenseBadge(license) {
     switch(license) {
-        case 'GNU AGPLv3': return '\nhttps://img.shields.io/badge/License-AGPL%20v3-blue.svg';
-        case 'GNU GPLv3': return '\nhttps://img.shields.io/badge/License-GPLv3-blue.svg';
-        case 'GNU LGPLv3': return '\nhttps://img.shields.io/badge/License-LGPL%20v3-blue.svg';
-        case 'Mozilla Public License 2.0': return '\nhttps://img.shields.io/badge/License-MPL%202.0-brightgreen.svg';
-        case 'Apache License 2.0': return '\nhttps://img.shields.io/badge/License-Apache%202.0-blue.svg';
-        case 'MIT License': return '\nhttps://img.shields.io/badge/License-MIT-yellow.svg';
-        case 'Boost Software License 1.0': return '\nhttps://img.shields.io/badge/License-Boost%201.0-lightblue.svg';
-        case 'The Unlicense': return '\nhttps://img.shields.io/badge/license-Unlicense-blue.svg';
+        case 'None': return '';
+        case 'GNU AGPLv3': return '![badge](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)\n\n---';
+        case 'GNU GPLv3': return '![badge](https://img.shields.io/badge/License-GPLv3-blue.svg)\n\n---';
+        case 'GNU LGPLv3': return '![badge](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)\n\n---';
+        case 'Mozilla Public License 2.0': return '![badge](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)\n\n---';
+        case 'Apache License 2.0': return '![badge](https://img.shields.io/badge/License-Apache%202.0-blue.svg)\n\n---';
+        case 'MIT License': return '![badge](https://img.shields.io/badge/License-MIT-yellow.svg)\n\n---';
+        case 'Boost Software License 1.0': return '![badge](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)\n\n---';
+        case 'The Unlicense': return '![badge](https://img.shields.io/badge/license-Unlicense-blue.svg)\n\n---';
     }
 }
 
 function licenseLink(license) {
     switch(license) {
-        case 'GNU AGPLv3': return 'https://choosealicense.com/licenses/agpl-3.0/';
-        case 'GNU GPLv3': return 'https://choosealicense.com/licenses/gpl-3.0/';
-        case 'GNU LGPLv3': return 'https://choosealicense.com/licenses/lgpl-3.0/';
-        case 'Mozilla Public License 2.0': return 'https://choosealicense.com/licenses/mpl-2.0/';
-        case 'Apache License 2.0': return 'https://choosealicense.com/licenses/apache-2.0/';
-        case 'MIT License': return 'https://choosealicense.com/licenses/mit/';
-        case 'Boost Software License 1.0': return 'https://choosealicense.com/licenses/bsl-1.0/';
-        case 'The Unlicense': return 'https://choosealicense.com/licenses/unlicense/';
+        case 'None': return 'This application has no license';
+        case 'GNU AGPLv3': return 'This application is licensed by [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/)';
+        case 'GNU GPLv3': return 'This application is licensed by [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)';
+        case 'GNU LGPLv3': return 'This application is licensed by [GNU LGPLv3](https://choosealicense.com/licenses/lgpl-3.0/)';
+        case 'Mozilla Public License 2.0': return 'This application is licensed by [Mozilla Public License 2.0](https://choosealicense.com/licenses/mpl-2.0/)';
+        case 'Apache License 2.0': return 'This application is licensed by [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)';
+        case 'MIT License': return 'This application is licensed by [MIT License](https://choosealicense.com/licenses/mit/)';
+        case 'Boost Software License 1.0': return 'This application is licensed by [Boost Software License 1.0](https://choosealicense.com/licenses/bsl-1.0/)';
+        case 'The Unlicense': return 'This application is licensed by [The Unlicense](https://choosealicense.com/licenses/unlicense/)';
     }
 }
 
@@ -95,9 +97,7 @@ function init() {
         var readmeMarkdown =
 
 `# ${data.title}
-![badge](${licBadge})
-
----
+${licBadge}
 
 ## Description
 
@@ -128,7 +128,7 @@ ${data.usage}
 
 ## License
         
-  This application is licensed by [${data.license}](${licLink}).
+${licLink}
     
 ---
 
@@ -146,11 +146,11 @@ ${data.tests}
 
 ## Questions
         
-  Feel free to contact me via one of the links below with any questions you may have.
+Feel free to contact me via one of the links below with any questions you may have.
 
-  GitHub: [${data.github}](https://github.com/${data.github})
+GitHub: [${data.github}](https://github.com/${data.github})
 
-  Email: [${data.email}](mailto:${data.email})
+Email: [${data.email}](mailto:${data.email})
 `
 
         writeToFile(fileName,data,licBadge,licLink,readmeMarkdown)})
