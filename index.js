@@ -82,7 +82,7 @@ function licenseLink(license) {
 
 // TODO: Create a function to write README file
 function writeToFile(fileName,data,licBadge,licLink,readmeMarkdown) {
-    fs.writeFile('README.md',readmeMarkdown,error => error ? console.log(error):console.log('README created.'))
+    fs.writeFile('./generated/README.md',readmeMarkdown,error => error ? console.log(error):console.log('README created.'))
 }
 
 // TODO: Create a function to initialize app
@@ -94,6 +94,7 @@ function init() {
         var fileName = ans.title;
         var data = ans;
 
+        //figure out how to export below instead...module export?
         var readmeMarkdown =
 
 `# ${data.title}
