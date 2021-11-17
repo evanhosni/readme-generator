@@ -1,53 +1,43 @@
-# Example Readme
+# Fitness Tracker
 
+https://evanhosni-fitness-tracker.herokuapp.com/
+
+---
 
 ## Description
 
-This readme was generated using the readme generator application
+This backend allows users to set and reach their fitness goals. Users can create workouts, update them as completed, and view their progress.
 
 ---
 
 ## Table of Contents
-  * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
   * [Contribution](#contribution)
   * [Questions](#questions)
-    
----
-
-## Installation
-
-N/A
 
 ---
 
 ## Usage
 
-N/A
-    
+From the homepage you can create new workouts, or continue previous workouts. View the Dashboard tab to track your previous workouts.
+
 ---
 
 ## License
-        
+
 This application has no license
-    
+
 ---
 
-## Contributing
+## Contribution
 
-N/A
-        
----
-
-## Tests
-
-N/A
+If you'd like to contribute, contact me via GitHub or email (below)
 
 ---
 
 ## Questions
-        
+
 Feel free to contact me via one of the links below with any questions you may have.
 
 GitHub: [evanhosni](https://github.com/evanhosni)

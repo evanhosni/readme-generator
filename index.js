@@ -111,6 +111,7 @@ ${data.description}
   * [Usage](#usage)
   * [License](#license)
   * [Contribution](#contribution)
+  * [Tests](#tests)
   * [Questions](#questions)
     
 ---
@@ -133,7 +134,7 @@ ${licLink}
     
 ---
 
-## Contributing
+## Contribution
 
 ${data.contributing}
         
